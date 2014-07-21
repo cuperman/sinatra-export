@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
     'lib/sinatra/export.rb',
     'lib/sinatra/export/rake.rb',
     'README.md',
-    'LICENSE',
+    'LICENSE.md',
     'UPGRADING'
   ]
   s.homepage = 'http://github.com/hooktstudios/sinatra-export'

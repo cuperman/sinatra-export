@@ -11,6 +11,7 @@ module Sinatra
         app.register Sinatra::AdvancedRoutes
       end
       app.set :export_extensions, %w(css js xml json html csv)
+      app.set :export_folder, Proc.new { public_folder }
       app.extend ClassMethods
     end
 
@@ -36,7 +37,7 @@ module Sinatra
       end
 
       def build!
-        dir = app.public_folder
+        dir = app.export_folder
         handle_error_dir_not_found!(dir) unless dir_exists?(dir)
         app.each_route do |route|
           next if route.verb != 'GET' or not route.path.is_a? String
